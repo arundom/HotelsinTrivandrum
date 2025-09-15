@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Meals_Onthego",
+    "name": "Hotels in Trivandrum",
     "slug": "Meals_Onthego",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,6 +24,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
