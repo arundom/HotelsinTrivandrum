@@ -46,8 +46,10 @@ export default function App() {
                   iconName = "map-marker-alt";
                   return <Fontisto name="map-marker-alt" size={size} color={color} />;
                 }
+
                 //<Fontisto name="map-marker-alt" size={24} color="black" />
                 // You can return any component that you like here!
+                
                 return <Ionicons name={iconName} size={size} color={color} />;
               },
             })}
