@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeArea } from "./src/components/utility/safe-area.component";
 import { Fontisto,Ionicons } from "@expo/vector-icons";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 
 
 // Below code is for Navigation setup
@@ -32,7 +33,8 @@ export default function App() {
 
     <>
      <ThemeProvider theme={theme}>
-                   
+
+        <RestaurantsContextProvider>            
         {<NavigationContainer>
           <Tab.Navigator screenOptions={({ route }) => ({
               tabBarIcon: ({ color, size }) => {
@@ -62,7 +64,8 @@ export default function App() {
             <Tab.Screen name="Settings" component={Settings} />
           </Tab.Navigator>
         </NavigationContainer>
-        }
+      }
+      </RestaurantsContextProvider>
       
       </ThemeProvider>
 
