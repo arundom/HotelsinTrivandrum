@@ -1,5 +1,5 @@
 import React,{useContext} from "react";
-import { Searchbar } from "react-native-paper";
+import { Searchbar,ActivityIndicator,MD2Colors } from "react-native-paper";
 import { FlatList} from "react-native";
 import styled from "styled-components/native";
 
@@ -38,8 +38,14 @@ export const RestaurantsScreen = () => {
 
   const {isLoading, error, restaurants} = useContext(RestaurantsContext);
   console.log(error);
-  
 
+  // Print restaurant names to console
+  if (restaurants && Array.isArray(restaurants)) {
+    restaurants.forEach((restaurant) => {
+      console.log(restaurant.name);
+    });
+  }
+ 
   return (
     <SafeArea>
 
@@ -61,18 +67,23 @@ export const RestaurantsScreen = () => {
         />      
       */}
       
+      {isLoading ? (
+        <ActivityIndicator size="large" animating={true} color={MD2Colors.blue300} />
+      ) : (
+      
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => {
           return (
             <Spacer position="bottom" size="large">
-              <RestaurantInfoCard restaurant={item} />
+              <RestaurantInfoCard restaurant={item} />              
             </Spacer>
           );
         }}
          keyExtractor={(item) => item.name}
+         
       />
-
+    )}
 
   </SafeArea>
 

@@ -1,6 +1,7 @@
 import React, { useState, createContext, useEffect, useMemo } from "react";
 import { restaurantsRequest, restaurantsTransform } from "./restaurants.service";
 
+
 export const RestaurantsContext = createContext();
 
 export const RestaurantsContextProvider = ({ children }) => {
@@ -12,7 +13,7 @@ export const RestaurantsContextProvider = ({ children }) => {
     const retrieveRestaurants = (location) => {
         setIsLoading(true);
         setRestaurants([]);
-        
+
         setTimeout(() => {
             restaurantsRequest(location)
                 .then(restaurantsTransform)
